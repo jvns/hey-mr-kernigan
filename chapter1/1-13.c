@@ -7,7 +7,7 @@
 
 #define IN 1 /* inside a word */
 #define OUT 0 /* outside a word */
-#define MAXLENGTH 30
+#define MAXLENGTH 31
 
 int main()
 {
@@ -22,21 +22,25 @@ int main()
     if (c == '\n' || c == '\t' || c == ' ') {
       if (state == IN) {
         // end of word
-        printf("%d", wordlength);
         ++wordlengths[wordlength];
       }
       state = OUT;
     }
     else {
-      state = IN;
       if (state == OUT) {
         // start of new word
         wordlength = 0;
       }
+      state = IN;
       ++wordlength;
     }
   }
-  for (i = 0; i < MAXLENGTH; ++i)
-    printf("%d", wordlengths[i]);
+  for (i = 1; i < MAXLENGTH; ++i) {
+    printf("%2d ", i);
+    int j;
+    for (j = 0; j < wordlengths[i]; j++)
+      printf("=");
+    printf("\n");
+  }
 
 }
