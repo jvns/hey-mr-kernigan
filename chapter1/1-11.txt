@@ -1,0 +1,13 @@
+Exercise 1-11
+How would you test the word count program?
+What kinds are most likely to uncover bugs if there are any?
+
+- test with tabs, newlines, and spcaes
+- test with empty input
+- test with several spaces/tabs in a row
+- test with and without a whitespace at the beginning/end
+
+Likely to uncover bugs:
+
+"abc" vs " abc "
+"abc def" vs "abc \t def"
